@@ -6,7 +6,6 @@ A WPF application where you can access, manage, and view relevant data pertainin
 # What I Learned
 * Agile Scrum
 * C# Extensions
-* Changing a Window's Style and Position using Win32 API
 * Custom Controls
 * Data Binding
 * Enumeration Types
@@ -20,9 +19,10 @@ A WPF application where you can access, manage, and view relevant data pertainin
 * Parameters
 * Properties
 * Risk Assessment
+* Setting a Window's Style and Position using Win32 API
 * Setting and Getting the Foreground Window using Win32 API
 * SQLite CRUD (Create, Read, Update, and Delete) Operations
-* Use Case Diagram
+* Use Case Diagrams
 * User Profiles (Personas) and Use Case Diagrams
 * UWP and WPF Styles
 * Web Scraping using AngleSharp and Selenium Chrome Driver
