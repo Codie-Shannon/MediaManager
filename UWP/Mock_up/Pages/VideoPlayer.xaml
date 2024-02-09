@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="Mock_up.Pages.VideoPlayer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mock_up.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="968">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="0.006*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.006*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Video Player -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Other/video_player.jpg" Stretch="Uniform"/>
+            </Grid.Background>
+        </Grid>
+
+        <!-- Video Player Bar -->
+        <Grid Style="{StaticResource Bar}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="31*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Play / Pause -->
+            <Button Content="&#xf5b0;" Style="{StaticResource SymbolBtn}" Grid.Column="0"/>
+
+            <!-- Go Back 10 Seconds -->
+            <Button Content="&#xed3c;" Style="{StaticResource SymbolBtn}" Grid.Column="1"/>
+
+            <!-- Go Forward 30 Seconds -->
+            <Button Content="&#xed3d;" Style="{StaticResource SymbolBtn}" Grid.Column="2"/>
+
+            <!-- Volume -->
+            <Button Content="&#xe995;" Style="{StaticResource SymbolBtn}" Grid.Column="3"/>
+
+            <!-- Duration Slider -->
+            <Slider Minimum="0" Maximum="100" VerticalAlignment="Center" Grid.Column="5"/>
+
+            <!-- Fullscreen / Back to Window -->
+            <Button Content="&#xe740;" Style="{StaticResource SymbolBtn}" Grid.Column="7"/>
+        </Grid>
+    </Grid>
+</Page>

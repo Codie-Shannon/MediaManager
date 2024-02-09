@@ -1,0 +1,276 @@
+﻿<Page
+    x:Class="Mock_up.Pages.GameEmulatorsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mock_up.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="968">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sub Menu -->
+        <Grid Style="{StaticResource SubmenuGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.005*"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- File Manager -->
+            <TextBlock Text="File Manager" Style="{StaticResource SubmenuTitle}" Grid.Column="3"/>
+
+            <!-- Remove Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="1">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xecc9;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Remove" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Rename Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="2">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8ac;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Rename" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Delete Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="3">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe74d;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Delete" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Scan and Import Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="4">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8fe;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Scan and Import" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show in File Explorer Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="5">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xec50;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show in Explorer" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="6"/>
+
+            <!-- Categories -->
+            <TextBlock x:Name="CategoriesTitle" Text="Categories" Style="{StaticResource SubmenuTitle}" Grid.Column="7" Grid.ColumnSpan="2"/>
+
+            <!-- Add to Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="7">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8f1;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Add to Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="8">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8cb;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="9"/>
+
+            <!-- Other -->
+            <TextBlock x:Name="Other" Text="Other" Style="{StaticResource SubmenuTitle}" Grid.Column="10"/>
+
+            <!-- Walk-throughs Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="10">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe72a;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Walk-throughs" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+        </Grid>
+
+        <!-- Emulator Items -->
+        <ScrollViewer Grid.Row="1">
+            <VariableSizedWrapGrid ItemWidth="216.4" ItemHeight="285" Style="{StaticResource GenericItemGrid}">
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/boycottadvance.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/desmume.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/dolphin.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/fceux.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/kega_fusion.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/kigb.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/mame.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/nintendo_yuzu.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/pcsx2.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/ppsspp.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/project64.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/rpcs3.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Game_Emulator_Covers/xenia.jpg"/>
+                </Grid>
+            </VariableSizedWrapGrid>
+        </ScrollViewer>
+
+        <!-- Information Pane -->
+        <Grid Style="{StaticResource InformationPane}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="10*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Emulator Name -->
+            <TextBlock Text="PCSX2" Style="{StaticResource SelectedItemTitle}"/>
+
+            <!-- Emulator Cover -->
+            <Image Style="{StaticResource SelectedItemCover}" Source="/Assets/Game_Emulator_Covers/pcsx2.jpg"/>
+
+            <!-- Movie Details -->
+            <ScrollViewer Style="{StaticResource SelectedItemDetailsScrollViewer}">
+                <ItemsControl Margin="10 0 0 0">
+                    <!-- Standard Details -->
+                    <TextBlock Text="Standard Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- File Size -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="File Size     " FontWeight="Bold"/>
+                        <Run Text="26.9 MB"/>
+                    </TextBlock>
+
+                    <!-- Accessed -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Accessed   " FontWeight="Bold"/>
+                        <Run Text="Thursday, September 23, 2021"/>
+                    </TextBlock>
+
+                    <!-- Created -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Created     " FontWeight="Bold"/>
+                        <Run Text="Tuesday, April 20, 2021"/>
+                    </TextBlock>
+
+
+                    <!-- Emulator Details -->
+                    <TextBlock Text="Emulator Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- Emulation Platform -->
+                    <TextBlock Text="Emulation Platform" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="PS2" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+
+                    <!-- Version -->
+                    <TextBlock Text="Version" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="1.6.0" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+
+                    <!-- Downloads -->
+                    <TextBlock Text="Downloads" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="6,223,597" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

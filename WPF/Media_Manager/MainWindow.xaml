@@ -1,0 +1,232 @@
+﻿<Window x:Class="Media_Manager.MainWindow"
+        xmlns:views="clr-namespace:Media_Manager.Views"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewmodels="clr-namespace:Media_Manager.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:MediaControls="clr-namespace:MediaControlsLibrary;assembly=MediaControlsLibrary"
+        mc:Ignorable="d" Title="Media Manager" Width="1920" Height="1080" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <!-- #region Main Pages -->
+            <!-- ========================================================================== -->
+            <!-- Movies Data Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <DataTemplate x:Name="MoviesViewTemplate" DataType="{x:Type viewmodels:MoviesViewModel}">
+                <views:MoviesView DataContext="{Binding}"/>
+            </DataTemplate>
+
+
+            <!-- TV Shows Data Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <DataTemplate x:Name="TVShowsViewTemplate" DataType="{x:Type viewmodels:TVShowsViewModel}">
+                <views:TVShowsView DataContext="{Binding}"/>
+            </DataTemplate>
+
+
+            <!-- Videos Data Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <DataTemplate x:Name="VideosViewTemplate" DataType="{x:Type viewmodels:VideosViewModel}">
+                <views:VideosView DataContext="{Binding}"/>
+            </DataTemplate>
+
+            
+            <!-- Pictures Data Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <DataTemplate x:Name="PicturesViewTemplate" DataType="{x:Type viewmodels:PicturesViewModel}">
+                <views:PicturesView DataContext="{Binding}"/>
+            </DataTemplate>
+
+
+            <!-- Music Data Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <DataTemplate x:Name="MusicViewTemplate" DataType="{x:Type viewmodels:MusicViewModel}">
+                <views:MusicView DataContext="{Binding}"/>
+            </DataTemplate>
+
+
+            <!-- Games Data Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <DataTemplate x:Name="GamesViewTemplate" DataType="{x:Type viewmodels:GamesViewModel}">
+                <views:GamesView DataContext="{Binding}"/>
+            </DataTemplate>
+            <!-- ========================================================================== -->
+            <!-- #endregion Main Pages -->
+
+
+            
+            <!-- #region Other Pages  -->
+            <!-- ========================================================================== -->
+            <!-- Video Player Data Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <DataTemplate x:Name="VideoPlayerViewTemplate" DataType="{x:Type viewmodels:VideoPlayerViewModel}">
+                <views:VideoPlayerView DataContext="{Binding}"/>
+            </DataTemplate>
+
+            
+            <!-- Picture Gallery Data Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <DataTemplate x:Name="PictureGalleryViewTemplate" DataType="{x:Type viewmodels:PictureGalleryViewModel}">
+                <views:PictureGalleryView DataContext="{Binding}"/>
+            </DataTemplate>
+            <!-- ========================================================================== -->
+            <!-- #endregion Other Pages -->
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="{StaticResource Application.Background}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <!-- Navigation Menu -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <MediaControls:NavigationView x:Name="NavigationMenu" x:FieldModifier="public" Grid.Row="0" IsSettings="True" Click="Settings_Click">
+            <!-- Libraries Header -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:NavigationViewItemHeader Content="Libraries"/>
+
+
+            <!-- Movies Button -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:NavigationViewItem x:Name="MoviesNavItem" Icon="&#xE8B2;" Label="Movies" ButtonBase.Click="Navigation_Click"/>
+
+
+            <!-- TV Shows Button -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:NavigationViewItem x:Name="TVShowsNavItem" Icon="&#xE786;" Label="TV Shows" ButtonBase.Click="Navigation_Click"/>
+
+
+            <!-- Videos Button -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:NavigationViewItem x:Name="VideosNavItem" Icon="&#xE714;" Label="Videos" ButtonBase.Click="Navigation_Click"/>
+
+
+            <!-- Pictures Button -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:NavigationViewItem x:Name="PicturesNavItem" Icon="&#xE8B9;" Label="Pictures" ButtonBase.Click="Navigation_Click"/>
+
+
+            <!-- Music Button -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:NavigationViewItem x:Name="MusicNavItem" Icon="&#xE8D6;" Label="Music" ButtonBase.Click="Navigation_Click"/>
+
+
+            <!-- Games Button -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:NavigationViewItem x:Name="GamesNavItem" Icon="&#xE990;" Label="Games" ButtonBase.Click="Navigation_Click"/>
+        </MediaControls:NavigationView>
+
+        
+
+        <!-- Overlay -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <Grid x:Name="Overlay" Style="{DynamicResource Overlay.Grid}"/>
+
+        
+        
+        <!-- Loading Panel -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <MediaControls:Loading x:Name="LoadingPanel" IsLoading="True" Grid.RowSpan="2" Panel.ZIndex="1"/>
+        
+        
+        
+        <!-- Default Browse Locations Panel -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <MediaControls:optPanel x:Name="BrowseLocationsPanel" Grid.RowSpan="2" Grid.ColumnSpan="2" Panel.ZIndex="1" Visibility="Collapsed">
+            <!-- Title -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optTitle Content="Edit Default Browse Locations"/>
+
+            
+            <!-- Movies Browse Location -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optOpenDialog x:Name="odMovies" Header="Movies" Placeholder="Select a Default Browse Location for Movies using the Browse Button..." ButtonContent="Browse" Type="Folder"/>
+
+
+            <!-- TV Shows Browse Location -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optOpenDialog x:Name="odTVShows" Header="TV Shows" Placeholder="Select a Default Browse Location for TV Shows using the Browse Button..." ButtonContent="Browse" Type="Folder"/>
+
+
+            <!-- Video Browse Location -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optOpenDialog x:Name="odVideos" Header="Videos" Placeholder="Select a Default Browse Location for Videos using the Browse Button..." ButtonContent="Browse" Type="Folder"/>
+            
+            
+            <!-- Picture Browse Location -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optOpenDialog x:Name="odPictures" Header="Pictures" Placeholder="Select a Default Browse Location for Pictures using the Browse Button..." ButtonContent="Browse" Type="Folder"/>
+
+
+            <!-- Music Browse Location -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optOpenDialog x:Name="odMusic" Header="Music" Placeholder="Select a Default Browse Location for Music using the Browse Button..." ButtonContent="Browse" Type="Folder"/>
+
+
+            <!-- Song Cover Browse Location -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optOpenDialog x:Name="odSongCover" Header="Song Cover" Placeholder="Select a Default Browse Location for Song Covers using the Browse Button..." ButtonContent="Browse" Type="Folder"/>
+
+
+            <!-- Game Browse Location -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optOpenDialog x:Name="odGames" Header="Games" Placeholder="Select a Default Browse Location for Games using the Browse Button..." ButtonContent="Browse" Type="Folder"/>
+            
+            
+            <!-- Apply and Back Buttons -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <Grid Style="{DynamicResource Options.Panel.Buttons.Grid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="0.07*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Apply Button -->
+                <!-- ============================== -->
+                <MediaControls:optButton x:Name="btnApply" Content="Apply" ButtonBase.Click="btnApply_Click"/>
+
+
+                <!-- Back Button -->
+                <!-- ============================== -->
+                <MediaControls:optButton Content="Back" Grid.Column="2" ButtonBase.Click="btnBack_Click"/>
+            </Grid>
+        </MediaControls:optPanel>
+
+
+
+        <!-- Body -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <ContentControl x:Name="Frame" x:FieldModifier="public" Content="{Binding}" Grid.Row="1" Grid.RowSpan="2" DataContextChanged="Frame_DataContextChanged"/>
+    </Grid>
+</Window>

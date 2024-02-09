@@ -1,0 +1,393 @@
+﻿<Page
+    x:Class="Mock_up.MoviesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mock_up"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="968">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sub Menu -->
+        <Grid Style="{StaticResource SubmenuGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.005*"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- File Manager -->
+            <TextBlock Text="File Manager" Style="{StaticResource SubmenuTitle}" Grid.Column="3"/>
+
+            <!-- Remove Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="1">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xecc9;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Remove" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Rename Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="2">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8ac;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Rename" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Delete Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="3">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe74d;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Delete" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Scan and Import Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="4">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8fe;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Scan and Import" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show in File Explorer Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="5">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xec50;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show in Explorer" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="6"/>
+
+            <!-- Categories -->
+            <TextBlock x:Name="CategoriesTitle" Text="Categories" Style="{StaticResource SubmenuTitle}" Grid.Column="7" Grid.ColumnSpan="2"/>
+
+            <!-- Add to Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="7">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8f1;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Add to Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="8">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8cb;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="9"/>
+
+            <!-- Other -->
+            <TextBlock x:Name="Other" Text="Other" Style="{StaticResource SubmenuTitle}" Grid.Column="10"/>
+
+            <!-- Walk-throughs Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="10">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe72a;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Walk-throughs" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+        </Grid>
+
+        <!-- Movie Items -->
+        <ScrollViewer Grid.Row="1">
+            <VariableSizedWrapGrid ItemWidth="189.4" ItemHeight="271" Style="{StaticResource GenericItemGrid}">
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/avengers_endgame.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/baby_driver.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/batman_the_dark_knight.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/batman_v_superman.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/captain_america_the_first_avenger.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/disney_pixar_cars_3.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/django_unchained.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/fast_and_furious_9.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/ghost_rider.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/hellboy.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/hellboy_the_golden_army.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/kung_fu_panda.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/lets_be_cops.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/pork_pie.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/r.i.p.d.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/real_steel.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/spiderman_into_the_spider-verse.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/the_conjuring_2.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/the_golden_compass.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/the_hitmans_bodyguard.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/the_suicide_squad.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/transformers_age_of_extinction.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/transformers_the_last_knight.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Movie_Covers/zootopia.jpg"/>
+                </Grid>
+            </VariableSizedWrapGrid>
+        </ScrollViewer>
+
+        <!-- Information Pane -->
+        <Grid Style="{StaticResource InformationPane}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="10*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Movie Title -->
+            <TextBlock Text="Baby Driver" Style="{StaticResource SelectedItemTitle}"/>
+
+            <!-- Movie Cover -->
+            <Image Style="{StaticResource SelectedItemCover}" Source="/Assets/Movie_Covers/baby_driver.jpg"/>
+
+            <!-- Movie Details -->
+            <ScrollViewer Style="{StaticResource SelectedItemDetailsScrollViewer}">
+                <ItemsControl Margin="10 0 0 0">
+                    <!-- Standard Details -->
+                    <TextBlock Text="Standard Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- Resolution -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Resolution  " FontWeight="Bold"/>
+                        <Run Text="1920 x 1080"/>
+                    </TextBlock>
+
+                    <!-- Duration -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Duration     " FontWeight="Bold"/>
+                        <Run Text="1:52:30"/>
+                    </TextBlock>
+
+                    <!-- Framerate -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Framerate   " FontWeight="Bold"/>
+                        <Run Text="24"/>
+                    </TextBlock>
+
+                    <!-- Format -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Format        " FontWeight="Bold"/>
+                        <Run Text="AVC"/>
+                    </TextBlock>
+
+                    <!-- File Size -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="File Size       " FontWeight="Bold"/>
+                        <Run Text="1.72 GB"/>
+                    </TextBlock>
+
+                    <!-- Last Accessed -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Accessed     " FontWeight="Bold"/>
+                        <Run Text="Thursday, September 23, 2021"/>
+                    </TextBlock>
+
+                    <!-- Date Created -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Created       " FontWeight="Bold"/>
+                        <Run Text="Saturday, May 1, 2021"/>
+                    </TextBlock>
+                    
+
+                    <!-- Advance Details -->
+                    <TextBlock Text="Advance Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- Sample Rate -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Sample Rate         " FontWeight="Bold"/>
+                        <Run Text="48.0 KHz"/>
+                    </TextBlock>
+
+                    <!-- Audio Channels -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Audio Channels    " FontWeight="Bold"/>
+                        <Run Text="2 Channels"/>
+                    </TextBlock>
+
+                    <!-- Framerate Mode -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Framerate Mode  " FontWeight="Bold"/>
+                        <Run Text="Constant"/>
+                    </TextBlock>
+                    
+
+                    <!-- IMDb Details -->
+                    <TextBlock Text="IMDb Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- Release Date -->
+                    <TextBlock Text="Release Date" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="Thursday, 20 July, 2017" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+
+                    <!-- Age Rating -->
+                    <TextBlock Text="Age Rating" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="R13" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+
+                    <!-- User Rating -->
+                    <TextBlock Text="User Rating" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="&#57807;    7.6 / 10   477K"  Style="{StaticResource Property}" FontFamily="Segoe UI Symbol" Padding="0 10 0 20"/>
+
+                    <!-- Genre -->
+                    <TextBlock Text="Genre" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="Action" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Crime" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Drama" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+
+                    <!-- Stars -->
+                    <TextBlock Text="Stars" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="Ansel Elgort" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Jon Bernthal" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Jon Hamm" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Eiza Gonzalez" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Micah Howard" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Lily James" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Morgan Brown" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Kevin Spacey" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Morse Diggs" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="CJ Jones" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Sky Ferreira" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Lance Palmer" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Hudson Meek" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Viviana Chaves" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Hal Whiteside" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Flea" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Lanny Joon" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Jamie Foxx" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

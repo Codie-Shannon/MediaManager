@@ -1,0 +1,556 @@
+﻿<Page
+    x:Class="Mock_up.TVShowPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mock_up"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="968">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sub Menu -->
+        <Grid Style="{StaticResource SubmenuGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.005*"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- File Manager -->
+            <TextBlock Text="File Manager" Style="{StaticResource SubmenuTitle}" Grid.Column="3"/>
+
+            <!-- Remove Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="1">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xecc9;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Remove" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Rename Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="2">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8ac;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Rename" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Delete Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="3">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe74d;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Delete" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Scan and Import Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="4">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8fe;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Scan and Import" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show in File Explorer Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="5">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xec50;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show in Explorer" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="6"/>
+
+            <!-- Categories -->
+            <TextBlock x:Name="CategoriesTitle" Text="Categories" Style="{StaticResource SubmenuTitle}" Grid.Column="7" Grid.ColumnSpan="2"/>
+
+            <!-- Add to Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="7">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8f1;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Add to Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="8">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8cb;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="9"/>
+
+            <!-- Other -->
+            <TextBlock x:Name="Other" Text="Other" Style="{StaticResource SubmenuTitle}" Grid.Column="10"/>
+
+            <!-- Walk-throughs Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="10">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe72a;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Walk-throughs" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+        </Grid>
+
+        <!-- TV Show Items -->
+        <ScrollViewer Grid.Row="1">
+            <VariableSizedWrapGrid ItemWidth="189.4" ItemHeight="271" Style="{StaticResource GenericItemGrid}">
+                <!-- Expanded TV Show -->
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/agents_of_shield.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.Projection>
+                                <PlaneProjection RotationZ="180"/>
+                            </SymbolIcon.Projection>
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+
+                <!-- TV Show Episodes -->
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/agents_of_shield.jpg"/>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/agents_of_shield.jpg"/>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/agents_of_shield.jpg"/>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/agents_of_shield.jpg"/>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/agents_of_shield.jpg"/>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/agents_of_shield.jpg"/>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/agents_of_shield.jpg"/>
+                </Grid>
+
+                <!-- Other TV Shows -->
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/arrow.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/black_lightning.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/constantine.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/daredevil.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/doom_patrol.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/dragon_ball_super.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/dragon_ball_z.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/iron_fist.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/jessica_jones.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/loki.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/prison_break.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/stargirl.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/supergirl.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/superman_and_lois.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/the_defenders.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/the_falcon_and_the_winter_soldier.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/the_flash.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/the_haunting_of_bly_manor.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/the_haunting_of_hill_house.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/the_legends_of_tomorrow.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/the_punisher.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/TV_Show_Covers/titans.jpg"/>
+                    <Button Style="{StaticResource TVShowExpand}">
+                        <SymbolIcon Symbol="Play" RenderTransformOrigin="0.5, 0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1" ScaleY="1"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                    </Button>
+                </Grid>
+            </VariableSizedWrapGrid>
+        </ScrollViewer>
+
+        <!-- Information Pane -->
+        <Grid Style="{StaticResource InformationPane}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="10*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Episode Name Title -->
+            <TextBlock Text="Agents of Shield S03E09" Style="{StaticResource SelectedItemTitle}"/>
+
+            <!-- TV Show Cover -->
+            <Image Style="{StaticResource SelectedItemCover}" Source="/Assets/TV_Show_Covers/agents_of_shield.jpg"/>
+
+            <!-- Episode Details Details -->
+            <ScrollViewer Style="{StaticResource SelectedItemDetailsScrollViewer}">
+                <ItemsControl Margin="10 0 0 0">
+                    <!-- Standard Details -->
+                    <TextBlock Text="Standard Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- Resolution -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Resolution  " FontWeight="Bold"/>
+                        <Run Text="1920 x 1080"/>
+                    </TextBlock>
+
+                    <!-- Duration -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Duration     " FontWeight="Bold"/>
+                        <Run Text="42:37"/>
+                    </TextBlock>
+
+                    <!-- Framerate -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Framerate   " FontWeight="Bold"/>
+                        <Run Text="60"/>
+                    </TextBlock>
+
+                    <!-- Format -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Format        " FontWeight="Bold"/>
+                        <Run Text="MPEG-4"/>
+                    </TextBlock>
+
+                    <!-- File Size -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="File Size       " FontWeight="Bold"/>
+                        <Run Text="256 MB"/>
+                    </TextBlock>
+
+                    <!-- Last Accessed -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Accessed     " FontWeight="Bold"/>
+                        <Run Text="Thursday, September 23, 2021"/>
+                    </TextBlock>
+
+                    <!-- Date Created -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Created       " FontWeight="Bold"/>
+                        <Run Text="Saturday, May 1, 2021"/>
+                    </TextBlock>
+
+                    
+                    <!-- Advance Details -->
+                    <TextBlock Text="Advance Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- Sample Rate -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Sample Rate         " FontWeight="Bold"/>
+                        <Run Text="44.1 KHz"/>
+                    </TextBlock>
+
+                    <!-- Audio Channels -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Audio Channels    " FontWeight="Bold"/>
+                        <Run Text="2 Channels"/>
+                    </TextBlock>
+
+                    <!-- Framerate Mode -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Framerate Mode  " FontWeight="Bold"/>
+                        <Run Text="Constant"/>
+                    </TextBlock>
+
+                    
+                    <!-- IMDb Details -->
+                    <TextBlock Text="IMDb Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- Release Date -->
+                    <TextBlock Text="Release Date" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="2013 - 2020" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+
+                    <!-- Age Rating -->
+                    <TextBlock Text="Age Rating" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="M" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+
+                    <!-- User Rating -->
+                    <TextBlock Text="User Rating" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="&#57807;    7.5 / 10   207K"  Style="{StaticResource Property}" FontFamily="Segoe UI Symbol" Padding="0 10 0 20"/>
+
+                    <!-- Genre -->
+                    <TextBlock Text="Genre" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="Action" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Adventure" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Drama" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+
+                    <!-- Stars -->
+                    <TextBlock Text="Stars" Style="{StaticResource Property}" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Text="Clark Gregg" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Ming-Na Wen" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Brett Dalton" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="lain De Caestecker" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Chloe Bennet" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Elizabeth Henstridge" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Henry Simmons" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Natalia Cordova-Buckley" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Jeff Ward" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Nick Blood" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Adrianne Palicki" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Luke Mitchell" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="John Hannah" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Maximilian Osinski" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Joel Stoffer" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Adrian Pasdar" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="B.J. Britt" Style="{StaticResource Property}" Padding="0 10 0 0"/>
+                    <TextBlock Text="Briana Venskus" Style="{StaticResource Property}" Padding="0 10 0 20"/>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

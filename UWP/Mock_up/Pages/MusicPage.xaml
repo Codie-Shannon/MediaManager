@@ -1,0 +1,1029 @@
+﻿<Page
+    x:Class="Mock_up.Pages.MusicPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mock_up.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="968">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="22*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sub Menu -->
+        <Grid Style="{StaticResource SubmenuGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.005*"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- File Manager -->
+            <TextBlock Text="File Manager" Style="{StaticResource SubmenuTitle}" Grid.Column="3"/>
+
+            <!-- Remove Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="1">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xecc9;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Remove" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Rename Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="2">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8ac;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Rename" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Delete Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="3">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe74d;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Delete" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Scan and Import Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="4">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8fe;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Scan and Import" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show in File Explorer Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="5">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xec50;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show in Explorer" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="6"/>
+
+            <!-- Categories -->
+            <TextBlock x:Name="CategoriesTitle" Text="Categories" Style="{StaticResource SubmenuTitle}" Grid.Column="7" Grid.ColumnSpan="2"/>
+
+            <!-- Add to Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="7">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8f1;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Add to Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="8">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8cb;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="9"/>
+
+            <!-- Other -->
+            <TextBlock x:Name="Other" Text="Other" Style="{StaticResource SubmenuTitle}" Grid.Column="10"/>
+
+            <!-- Walk-throughs Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="10">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe72a;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Walk-throughs" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+        </Grid>
+
+        <!-- Music Item Labels -->
+        <Grid Style="{StaticResource MusicLabelsGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="19"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Song Name -->
+            <TextBlock Text="Name" VerticalAlignment="Center" Grid.Column="1"/>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource MusicLabelDivider}" Y1="25" Grid.Column="2"/>
+
+            <!-- Date Modified -->
+            <TextBlock Text="Duration" VerticalAlignment="Center" Grid.Column="3"/>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource MusicLabelDivider}" Y1="25" Grid.Column="4"/>
+
+            <!-- File Format -->
+            <TextBlock Text="Format" VerticalAlignment="Center" Grid.Column="5"/>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource MusicLabelDivider}" Y1="25" Grid.Column="6"/>
+
+            <!-- Size -->
+            <TextBlock Text="File Size" VerticalAlignment="Center" Grid.Column="7"/>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource MusicLabelDivider}" Y1="25" Grid.Column="8"/>
+        </Grid>
+
+        <!-- Music Items -->
+        <ScrollViewer Grid.Row="3">
+            <VariableSizedWrapGrid Style="{StaticResource MusicItemsGrid}">
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="3 Doors Down - Kryptonite" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:54" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="6 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Aloe Blacc - The Man" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="04:16" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="7 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Bastille - Pompeii" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:52" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="6 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Billy Idol - Rebel Yell" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="04:46" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="7 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Black Eyed Peas - The Time (Dirty Bit)" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="05:25" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="7 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Bob Seger - Old Time Rock n Roll" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:20" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Bon Jovi - It's My Life" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="04:01" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="6 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Bon Jovi - Wanted Dead or Alive" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="05:10" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="7 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Bryan Adams - Here I Am" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:34" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Bryan Adams - Summer of 69" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:41" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="3 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Busted - Year 3000" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:19" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Chris Brown - Yeah 3x" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="04:01" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="6 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="David Guetta ft Kid Cudi - Memories" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:29" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="David Guetta ft Sia - Titanium" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:55" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="DEF LEPPARD - Pour Some Sugar On Me" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="04:55" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="7 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Desiigner - Tiimmy Turner" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="04:00" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Don Omar ft Lucenzo - Danza Kuduro" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:19" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Ellie Goulding - Burn" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:51" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Elvis Presley - Can't Help Falling In Love" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:00" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="4 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Elvis Presley - Jailhouse Rock" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="02:37" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="4 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Five - Keep On Moving" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:19" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Flo Rida - Club Can't Handle Me" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:53" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Fun Guns - Shut Up And Dance With Me" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:24" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="G-Eazy ft Bebe Rexha - Me, Myself And I" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="05:48" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="13 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Guns N Roses - Sweet Child O' Mine" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="05:56" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="8 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Imagine Dragons - Radioactive" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:07" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="4 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="INXS - Devil's Party" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="05:55" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Jay Sean ft Lil Wayne - Down" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:43" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="3 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+
+                <Grid Style="{ StaticResource MusicItem}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Song Name -->
+                    <TextBlock Text="Justin Timberlake - Can't Stop Feeling!" VerticalAlignment="Center" Grid.Column="1"/>
+
+                    <!-- Duration -->
+                    <TextBlock Text="03:59" VerticalAlignment="Center" Grid.Column="3"/>
+
+                    <!-- File Format -->
+                    <TextBlock Text="MP3 Audio File" VerticalAlignment="Center" Grid.Column="5"/>
+
+                    <!-- Size -->
+                    <TextBlock Text="5 MB" VerticalAlignment="Center" Grid.Column="7"/>
+                </Grid>
+            </VariableSizedWrapGrid>
+        </ScrollViewer>
+
+        <!-- Music Player -->
+        <Grid Style="{StaticResource InformationPane}" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.4*"/>
+                <RowDefinition Height="8.75*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Music Title -->
+            <TextBlock Text="3 Doors Down - Kryptonite" Style="{StaticResource SelectedItemTitle}"/>
+
+            <!-- Music Player Image -->
+            <Image Style="{StaticResource SelectedItemCover}" Source="/Assets/Other/music_player.jpg"/>
+
+            <!-- Music Player Buttons -->
+            <Grid Grid.Row="5" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="&#xe8b1;" Style="{StaticResource SymbolBtn}" FontSize="24" Grid.Column="0"/>
+                <Button Content="&#xe8ee;" Style="{StaticResource SymbolBtn}" Grid.Column="1"/>
+                <Button Content="&#xf8ac;" Style="{StaticResource SymbolBtn}" Grid.Column="2"/>
+                <Button Content="&#xf5b0;" Style="{StaticResource SymbolBtn}" Grid.Column="3"/>
+                <Button Content="&#xe002;" Style="{StaticResource SymbolBtn}" FontSize="17" Grid.Column="4"/>
+                <Button Content="&#xf8ad;" Style="{StaticResource SymbolBtn}" Grid.Column="5"/>
+                <Button Content="&#57693;" Style="{StaticResource SymbolBtn}" Grid.Column="6"/>
+            </Grid>
+
+            <!-- Song Details -->
+            <ScrollViewer Style="{StaticResource SelectedItemDetailsScrollViewer}">
+                <ItemsControl Margin="10 0 0 0">
+                    <!-- Standard Details -->
+                    <TextBlock Text="Standard Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- Duration -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Duration     " FontWeight="Bold"/>
+                        <Run Text="03:54"/>
+                    </TextBlock>
+
+                    <!-- Format -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Format        " FontWeight="Bold"/>
+                        <Run Text="MP3 Audio File"/>
+                    </TextBlock>
+
+                    <!-- File Size -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="File Size       " FontWeight="Bold"/>
+                        <Run Text="6 MB"/>
+                    </TextBlock>
+
+                    <!-- Last Accessed -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Accessed     " FontWeight="Bold"/>
+                        <Run Text="Thursday, September 23, 2021"/>
+                    </TextBlock>
+
+                    <!-- Date Created -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Created       " FontWeight="Bold"/>
+                        <Run Text="Wednesday, April 28, 2021"/>
+                    </TextBlock>
+                    
+
+                    <!-- Advance Details -->
+                    <TextBlock Text="Advance Details" Style="{StaticResource DetailsTitle}"/>
+
+                    <!-- Sample Rate -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Sample Rate         " FontWeight="Bold"/>
+                        <Run Text="44.1 KHz"/>
+                    </TextBlock>
+
+                    <!-- Audio Channels -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Audio Channels    " FontWeight="Bold"/>
+                        <Run Text="2 Channels"/>
+                    </TextBlock>
+
+                    <!-- Compression Mode -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Comp. Mode        " FontWeight="Bold"/>
+                        <Run Text="Lossy"/>
+                    </TextBlock>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,334 @@
+﻿<Page
+    x:Class="Mock_up.Pages.VideosPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mock_up.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="968">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sub Menu -->
+        <Grid Style="{StaticResource SubmenuGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.005*"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- File Manager -->
+            <TextBlock Text="File Manager" Style="{StaticResource SubmenuTitle}" Grid.Column="3"/>
+
+            <!-- Remove Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="1">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xecc9;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Remove" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Rename Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="2">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8ac;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Rename" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Delete Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="3">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe74d;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Delete" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Scan and Import Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="4">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8fe;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Scan and Import" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show in File Explorer Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="5">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xec50;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show in Explorer" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="6"/>
+
+            <!-- Categories -->
+            <TextBlock x:Name="CategoriesTitle" Text="Categories" Style="{StaticResource SubmenuTitle}" Grid.Column="7" Grid.ColumnSpan="2"/>
+
+            <!-- Add to Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="7">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8f1;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Add to Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Show Category Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="8">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe8cb;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Show Category" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+
+            <!-- Divider -->
+            <Line Style="{StaticResource SubmenuDivider}" Grid.Column="9"/>
+
+            <!-- Other -->
+            <TextBlock x:Name="Other" Text="Other" Style="{StaticResource SubmenuTitle}" Grid.Column="10"/>
+
+            <!-- Walk-throughs Button -->
+            <Button Style="{StaticResource SubmenuBtn}" Grid.Column="10">
+                <Grid Style="{StaticResource SubmenuBtnGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="&#xe72a;" Style="{StaticResource SubmenuIcon}"/>
+                    <TextBlock Text="Walk-throughs" Style="{StaticResource SubmenuText}"/>
+                </Grid>
+            </Button>
+        </Grid>
+
+        <!-- Video Thumbnails -->
+        <ScrollViewer Grid.Row="1">
+            <VariableSizedWrapGrid ItemWidth="378.8" ItemHeight="215" Style="{StaticResource GenericItemGrid}">
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/2_for_1.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/afloat.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/car_jumping.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/flying_bike.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/four_lane_grass_hopper.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/house_hopping.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/invisible_car.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/jumping_cops.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/lucky_stop.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/mx_backflip.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/npc_highjack.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/one_way_to_ditch_the_cops.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/one_way_to_get_back_on_track.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/sideways_flip.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/that_drift_life.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/the_flying_dukes.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/the_viper.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/the_wait.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/use_opponents_weight_against_them.jpg"/>
+                </Grid>
+
+                <Grid Style="{StaticResource GenericItemBorder}">
+                    <Image Stretch="Fill" Source="/Assets/Video_Thumbnails/van_flip.jpg"/>
+                </Grid>
+            </VariableSizedWrapGrid>
+        </ScrollViewer>
+
+        <!-- Information Pane -->
+        <Grid Style="{StaticResource InformationPane}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*"/>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.4*"/>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="0.55*" />
+                <RowDefinition Height="16*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="0.25*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Video Name -->
+            <TextBlock Text="2 For 1" Style="{StaticResource SelectedItemTitle}"/>
+
+            <!-- Video Thumbnail -->
+            <Image Source="/Assets/Video_Thumbnails/2_for_1.jpg" Style="{StaticResource SelectedItemCover}"/>
+
+            <!-- Video Details -->
+            <ScrollViewer  Style="{StaticResource SelectedItemDetailsScrollViewer}">
+                <ItemsControl Margin="10 0 0 0">
+                    <!-- Standard Details -->
+                    <TextBlock Text="Standard Details" Style="{StaticResource DetailsTitle}" Grid.Row="0"/>
+
+                    <!-- Resolution -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Resolution  " FontWeight="Bold"/>
+                        <Run Text="1280 x 720"/>
+                    </TextBlock>
+
+                    <!-- Duration -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Duration     " FontWeight="Bold"/>
+                        <Run Text="00:28"/>
+                    </TextBlock>
+
+                    <!-- Framerate -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Framerate   " FontWeight="Bold"/>
+                        <Run Text="30"/>
+                    </TextBlock>
+
+                    <!-- Format -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Format        " FontWeight="Bold"/>
+                        <Run Text="AVC"/>
+                    </TextBlock>
+
+                    <!-- File Size -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="File Size       " FontWeight="Bold"/>
+                        <Run Text="12.2 MB"/>
+                    </TextBlock>
+
+                    <!-- Last Accessed -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Accessed     " FontWeight="Bold"/>
+                        <Run Text="Thursday, September 23, 2021"/>
+                    </TextBlock>
+
+                    <!-- Date Created -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Created       " FontWeight="Bold"/>
+                        <Run Text="Wednesday, April 28, 2021"/>
+                    </TextBlock>
+
+
+                    <!-- Advance Details -->
+                    <TextBlock Text="Advance Details" Style="{StaticResource DetailsTitle}" Grid.Row="16"/>
+
+                    <!-- Sample Rate -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Sample Rate         " FontWeight="Bold"/>
+                        <Run Text="48.0 KHz"/>
+                    </TextBlock>
+
+                    <!-- Audio Channels -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Audio Channels    " FontWeight="Bold"/>
+                        <Run Text="2 Channels"/>
+                    </TextBlock>
+
+                    <!-- Framerate Mode -->
+                    <TextBlock Style="{StaticResource Property}">
+                        <Run Text="Framerate Mode  " FontWeight="Bold"/>
+                        <Run Text="Variable"/>
+                    </TextBlock>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

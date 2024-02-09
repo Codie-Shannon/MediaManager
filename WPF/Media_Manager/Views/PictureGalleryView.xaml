@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="Media_Manager.Views.PictureGalleryView"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:MediaControls="clr-namespace:MediaControlsLibrary;assembly=MediaControlsLibrary"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080">
+    <MediaControls:Viewer Background="{StaticResource Application.Background}" Loaded="View_Loaded" Unloaded="View_Unloaded" SizeChanged="View_SizeChanged" MouseEnter="Pane_MouseLeave">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <!-- Navigation Menu -->
+            <!-- ========================================================================== -->
+            <!-- ========================================================================== -->
+            <MediaControls:NavigationView x:Name="NavigationMenu" Grid.Row="0">
+                <!-- Back Button -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:NavigationViewBack x:Name="btnBack" Content="&#xE72B;" Click="Back_Click"/>
+
+
+                <!-- Libraries Header -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:NavigationViewItemHeader Content="Libraries" Margin="0 0 5 0"/>
+
+
+                <!-- Movies Button -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:NavigationViewItem Icon="&#xE8B2;" Label="Movies" IsEnabled="False"/>
+
+
+                <!-- TV Shows Button -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:NavigationViewItem Icon="&#xE786;" Label="TV Shows" IsEnabled="False"/>
+
+
+                <!-- Videos Button -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:NavigationViewItem Icon="&#xE714;" Label="Videos" IsEnabled="False"/>
+
+
+                <!-- Pictures Button -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:NavigationViewItem Icon="&#xE8B9;" Label="Pictures" IsSelected="True" ButtonBase.Click="Back_Click"/>
+
+
+                <!-- Music Button -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:NavigationViewItem Icon="&#xE8D6;" Label="Music" IsEnabled="False"/>
+
+
+                <!-- Games Button -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:NavigationViewItem Icon="&#xE990;" Label="Games" IsEnabled="False"/>
+            </MediaControls:NavigationView>
+
+
+            
+            <!-- Picture Element -->
+            <!-- ========================================================================== -->
+            <!-- ========================================================================== -->
+            <ScrollViewer x:Name="svPicture" Style="{StaticResource PictureGallery.Picture.ScrollViewer}" MouseEnter="Pane_MouseLeave">
+                <MediaControls:imgPicture x:Name="imgPicture" MouseDown="imgPicture_CaptureMouse" MouseUp="imgPicture_ReleaseMouseCapture" MouseMove="imgPicture_Pan" MouseWheel="imgPicture_Zoom">
+                    <Image x:Name="bmpPicture" RenderTransformOrigin="0.5, 0.5">
+                        <Image.Source>
+                            <BitmapImage x:Name="bpimage" UriSource="/Textures/Logo_Dark.png"/>
+                        </Image.Source>
+                    </Image>
+                </MediaControls:imgPicture>
+            </ScrollViewer>
+
+
+            
+            <!-- Bar -->
+            <!-- ========================================================================== -->
+            <!-- ========================================================================== -->
+            <MediaControls:viewBar x:Name="Bar" Click="btnFullscreen_Click" Grid.Row="2">
+                <!-- Back Button -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:viewIconButton x:Name="btnPrevious" Icon="&#xe892;" Click="btnSkipItem_Click"/>
+
+                
+                <!-- Rotate Right -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:viewIconButton x:Name="btnRotateRight" Icon="&#xe80c;" FontSize="30" Click="btnRotate_Click"/>
+
+                
+                <!-- Rotate Left -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:viewIconButton x:Name="btnRotateLeft" Icon="&#xe80d;" FontSize="30" Click="btnRotate_Click"/>
+
+                
+                <!-- Next Button -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:viewIconButton x:Name="btnNext" Icon="&#xe893;" Click="btnSkipItem_Click"/>
+            </MediaControls:viewBar>
+
+
+            
+            <!-- Mouse Move Panels -->
+            <!-- ========================================================================== -->
+            <!-- ========================================================================== -->
+            <Grid x:Name="gNavMouseMove" MouseMove="Pane_MouseMove" Style="{DynamicResource Pane.MouseMove}" Grid.Row="0"/>
+            <Grid x:Name="gBarMouseMove" MouseMove="Pane_MouseMove" Style="{DynamicResource Pane.MouseMove}" Grid.Row="2"/>
+
+
+            
+            <!-- Size Panels -->
+            <!-- ========================================================================== -->
+            <!-- ========================================================================== -->
+            <Grid x:Name="gNavSize" Style="{DynamicResource Pane.Sizer}" Grid.Row="0"/>
+            <Grid x:Name="gBarSize" Style="{DynamicResource Pane.Sizer}" Grid.Row="2"/>
+        </Grid>
+    </MediaControls:Viewer>
+</UserControl>

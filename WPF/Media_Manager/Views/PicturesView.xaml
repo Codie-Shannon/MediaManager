@@ -1,0 +1,385 @@
+﻿<UserControl x:Class="Media_Manager.Views.PicturesView"
+             xmlns:Models="clr-namespace:Media_Manager.Models"
+             xmlns:MediaControlModels="clr-namespace:MediaControlsLibrary.Models;assembly=MediaControlsLibrary"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Properties="clr-namespace:Media_Manager.Properties"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:VWP="clr-namespace:WpfToolkit.Controls;assembly=VirtualizingWrapPanel"
+             xmlns:MediaControls="clr-namespace:MediaControlsLibrary;assembly=MediaControlsLibrary"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080" SizeChanged="View_SizeChanged" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <!-- Submenu -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <MediaControls:subMenu Grid.ColumnSpan="2">
+            <!-- File Manager Group -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:subGroup Header="File Manager">
+                <!-- Add Button -->
+                <!-- ============================== -->
+                <MediaControls:subButton x:Name="btnAdd" Tag="add" Icon="&#xecc8;" Content="Add" ToolTip="Add an element to the application." ButtonBase.Click="SelectPanel_Click"/>
+
+
+                <!-- Delete Button -->
+                <!-- ============================== -->
+                <MediaControls:subButton x:Name="btnDelete" Icon="&#xe74d;" Content="Delete" ToolTip="Delete the selected picture from the computer system." Click="Remove_Click"/>
+
+
+                <!-- Edit Button -->
+                <!-- ============================== -->
+                <MediaControls:subButton x:Name="btnEdit" Tag="edit" Icon="&#xeb7e;" Content="Edit" ToolTip="Edit the selected element's information." ButtonBase.Click="SelectPanel_Click"/>
+
+
+                <!-- Remove Button -->
+                <!-- ============================== -->
+                <MediaControls:subButton x:Name="btnRemove" Icon="&#xecc9;" Content="Remove" ToolTip="Remove the selected element from the application." Click="Remove_Click"/>
+
+
+                <!-- Show In Explorer Button -->
+                <!-- ============================== -->
+                <MediaControls:subButton x:Name="btnShowInExplorer" Icon="&#xec50;" Content="Show in Explorer" ToolTip="Show the selected picture in windows file explorer." ButtonBase.Click="ShowInExplorer_Click"/>
+            </MediaControls:subGroup>
+
+
+            <!-- Separator -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:subGroupSeparator/>
+
+
+            <!-- Other Group -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:subGroup Header="Other">
+                <!-- Sort By ComboBox -->
+                <!-- ============================== -->
+                <MediaControls:subComboBox x:Name="cboxSortBy" Icon="&#xe8cb;" Content="Sort By" SelectionUpdate="cboxSortBy_SelectionUpdate">
+                    <!-- Standard Details -->
+                    <MediaControls:subRadioButton Content="Name" DBName="CustomName/Name"/>
+                    <MediaControls:subRadioButton Content="Resolution" DBName="Width + Height"/>
+                    <MediaControls:subRadioButton Content="Duration" DBName="Duration"/>
+                    <MediaControls:subRadioButton Content="Framerate" DBName="Framerate"/>
+                    <MediaControls:subRadioButton Content="Format" DBName="Format"/>
+                    <MediaControls:subRadioButton Content="File Size" DBName="FileSize"/>
+                    <MediaControls:subRadioButton Content="Date Added" DBName="Id"/>
+                    <MediaControls:subRadioButton Content="Date Created" DBName="CreationDate/CreationTime"/>
+
+
+                    <!-- Advance Details -->
+                    <MediaControls:subRadioButton Content="Sample Rate" DBName="SampleRate"/>
+                    <MediaControls:subRadioButton Content="Audio Channels" DBName="AudioChannels"/>
+                    <MediaControls:subRadioButton Content="Framerate Mode" DBName="FramerateMode"/>
+
+
+                    <!-- Separator -->
+                    <MediaControls:subComboBoxItemSeparator/>
+
+
+                    <!-- Sorting Type -->
+                    <MediaControls:subCheckBox Content="Ascending" DBName="ASC"/>
+                    <MediaControls:subCheckBox Content="Descending" DBName="DESC"/>
+                </MediaControls:subComboBox>
+
+
+                <!-- Show Unavailable -->
+                <!-- ============================== -->
+                <MediaControls:subToggleButton x:Name="tbtnShowNA" Icon="&#xE9CE;" Content="Show N / A" ButtonBase.Click="tbtnShowNA_Click"/>
+
+
+                <!-- Show Favourites -->
+                <!-- ============================== -->
+                <MediaControls:subToggleButton x:Name="tbtnShowFavourites" Icon="&#xE734;" Content="Show Favourites" Width="140" Click="tbtnShowFavourites_Click"/>
+            </MediaControls:subGroup>
+        </MediaControls:subMenu>
+
+
+
+        <!-- Folder Navigation Bar -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <MediaControls:NavigationBar x:Name="nbNavigationBar" Grid.Row="1" Grid.ColumnSpan="2" FolderClick="NavigationBar_Click" Back="NavigationBar_Click" Forward="NavigationBar_Click"/>
+
+
+
+        <!-- Placeholder for Information Pane Column Width -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <Grid x:Name="IPCSize" Grid.Row="2" Grid.Column="1"/>
+
+
+
+        <!-- Information Pane -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <Border x:Name="informationPane" Grid.Row="2" Style="{StaticResource InformationPane.Border}">
+            <Grid x:Name="informationPaneData" Style="{StaticResource InformationPane}" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="1.9*" />
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="0.4*" />
+                    <RowDefinition Height="10*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Title -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:ipTitle x:Name="Title" Grid.Row="1" Grid.Column="1"/>
+
+
+                <!-- Cover -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:ipCover x:Name="Cover" Grid.Row="3" Grid.Column="1"/>
+
+
+                <!-- Details -->
+                <!-- ============================== -->
+                <!-- ============================== -->
+                <MediaControls:ipDetails Grid.Row="6" Grid.ColumnSpan="3">
+                    <!-- Standard Details -->
+                    <!-- ============================== -->
+                    <MediaControls:ipDetailsTitle Content="Standard Details"/>
+                    <MediaControls:ipProperty x:Name="tbResolution" Header="Resolution"/>
+                    <MediaControls:ipProperty x:Name="tbFormat" Header="Format"/>
+                    <MediaControls:ipProperty x:Name="tbFileSize" Header="File Size"/>
+                    <MediaControls:ipProperty x:Name="tbCreated" Header="Created"/>
+
+
+                    <!-- Advance Details -->
+                    <!-- ============================== -->
+                    <MediaControls:ipDetailsTitle Content="Advance Details"/>
+                    <MediaControls:ipProperty x:Name="tbColourSpace" Header="Colour Space"/>
+                    <MediaControls:ipProperty x:Name="tbBitDepth" Header="Bit Depth"/>
+                    <MediaControls:ipProperty x:Name="tbCompMode" Header="Comp. Mode"/>
+                </MediaControls:ipDetails>
+            </Grid>
+        </Border>
+
+
+
+        <!-- Elements -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <ItemsControl x:Name="icItems" Grid.Row="2" Padding="2" Background="{StaticResource Application.Background}"  ItemTemplateSelector="{Binding Source={StaticResource ElementSelector}}" ItemsSource="{Binding Composite}" MouseUp="ItemsControl_MouseUp">
+            <!-- Items Panel -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!-- Virtualizing Wrap Panel -->
+                    <!-- ============================== -->
+                    <VWP:VirtualizingWrapPanel x:Name="vwpItems" IsVirtualizing="True" VirtualizationMode="Recycling"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+
+            <!-- Item Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <ItemsControl.Resources>
+                <!-- Pictures DataTemplate -->
+                <!-- ============================== -->
+                <DataTemplate x:Key="ItemTemplate" DataType="{x:Type Models:Picture}">
+                    <!-- Image Item -->
+                    <!-- ============================== -->
+                    <MediaControls:ImageItem Id="{Binding Id, Mode=OneTime}" MName="{Binding Name, Mode=OneTime}" MCustomName="{Binding CustomName, Mode=OneTime}" Background="{Binding CoverImage, Mode=OneTime, Converter={StaticResource CoverImageConverter}, ConverterParameter='Pictures'}" Click="Element_Click" ContextMenuService.ContextMenuOpening="Element_ContextMenuOpening">
+                        <!-- IsSelected MultiBinding -->
+                        <MediaControls:ImageItem.IsSelected>
+                            <MultiBinding Converter="{StaticResource SelectionConverter}">
+                                <Binding Path="Id" Mode="OneWay"/>
+                                <Binding RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}" Path="selectedId"/>
+                            </MultiBinding>
+                        </MediaControls:ImageItem.IsSelected>
+
+
+                        <!-- Item's Context Menu -->
+                        <MediaControls:ImageItem.ContextMenu>
+                            <ContextMenu Style="{StaticResource Item.ContextMenu.Template}">
+                                <MediaControls:ContextMenuItem Tag="item" Header="View Picture" Click="cmiOpen_Click"/>
+                                <MediaControls:ContextMenuItem x:Name="cmiDelete" Header="Delete Picture" Click="Remove_Click"/>
+                                <MediaControls:ContextMenuItem Tag="edit" Header="Edit Picture" Click="SelectPanel_Click"/>
+                                <MediaControls:ContextMenuItem x:Name="cmiRemove" Header="Remove Picture" Click="Remove_Click"/>
+                                <MediaControls:ContextMenuItem Header="Show In Explorer" Click="ShowInExplorer_Click"/>
+                            </ContextMenu>
+                        </MediaControls:ImageItem.ContextMenu>
+                    </MediaControls:ImageItem>
+                </DataTemplate>
+
+
+                <!-- Folders DataTemplate -->
+                <!-- ============================== -->
+                <DataTemplate x:Key="FolderTemplate" DataType="{x:Type MediaControlModels:Folder}">
+                    <MediaControls:ImageFolder Id="{Binding Id, Mode=OneTime}" Content="{Binding Name, Mode=OneTime}" Click="Element_Click" ContextMenuService.ContextMenuOpening="Element_ContextMenuOpening">
+                        <!-- Folder's Context Menu -->
+                        <MediaControls:ImageFolder.ContextMenu>
+                            <ContextMenu Style="{StaticResource Item.ContextMenu.Template}">
+                                <MediaControls:ContextMenuItem Tag="folder" Header="Open Folder" Click="cmiOpen_Click"/>
+                                <MediaControls:ContextMenuItem Tag="edit" Header="Edit Folder" Click="SelectPanel_Click"/>
+                                <MediaControls:ContextMenuItem Header="Remove Folder" Click="Remove_Click"/>
+                            </ContextMenu>
+                        </MediaControls:ImageFolder.ContextMenu>
+                    </MediaControls:ImageFolder>
+                </DataTemplate>
+            </ItemsControl.Resources>
+
+
+            <!-- Items Control Template -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <ItemsControl.Template>
+                <ControlTemplate TargetType="ItemsControl">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                        <ScrollViewer CanContentScroll="True" Padding="{TemplateBinding Padding}" Focusable="False">
+                            <ItemsPresenter />
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </ItemsControl.Template>
+        </ItemsControl>
+
+
+
+        <!-- Select Panel -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <MediaControls:optPanel x:Name="SelectPanel" Grid.RowSpan="3" Grid.ColumnSpan="2" PanelWidth="520" PanelHeight="300" Visibility="Collapsed">
+            <!-- Title -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optTitle Content="Select a Element Type to Add"/>
+
+
+            <!-- Icon Button Group -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optIconButtonGroup>
+                <!-- Item Icon Button -->
+                <!-- ============================== -->
+                <MediaControls:optIconButton x:Name="btnItem" Icon="&#xEA69;" Content="Picture" Click="OpenElementPanel_Click"/>
+
+
+                <!-- Folder Icon Button -->
+                <!-- ============================== -->
+                <MediaControls:optIconButton x:Name="btnFolder" Icon="&#xF12B;" Content="Folder" Click="OpenElementPanel_Click"/>
+            </MediaControls:optIconButtonGroup>
+        </MediaControls:optPanel>
+
+
+
+        <!-- Item Panel -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <MediaControls:optPanel x:Name="ItemPanel" Grid.RowSpan="3" Grid.ColumnSpan="2" Visibility="Collapsed">
+            <!-- Title -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optTitle x:Name="ItemPanelTitle" Content="Add Picture"/>
+
+
+            <!-- Custom Name -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optTextBoxLong x:Name="tbCustomName" Header="Custom Name" Placeholder="Enter a Custom Name..." TextChanged="TextBox_TextChanged"/>
+
+
+            <!-- Picture Path -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optOpenDialog x:Name="odPicturePath" Header="* Picture Path" Placeholder="Select the Picture File using the Browse Button..." ButtonContent="Browse" ButtonBase.Click="odPicturePath_Click" Type="File" SelectionName="Select Picture" Selectables="png, jpg, jpeg" RootDirectory="Pictures" InitialDirectory="{Binding Source={x:Static Properties:Settings.Default}, Path=PictureBrowse}"/>
+
+
+            <!-- Save Location -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optFolderBrowserDialog x:Name="fbdItemSaveLocation" Header="* Save Location" Placeholder="Select a Location to Save the Picture..." ButtonContent="Browse" InitialFolderID="-1" TextChanged="TextBox_TextChanged"/>
+
+
+            <!-- Add and Back Buttons -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <Grid Style="{DynamicResource Options.Panel.Buttons.Grid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="0.07*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Add Button -->
+                <!-- ============================== -->
+                <MediaControls:optButton x:Name="btnProcessItem" Tag="item" Content="Add" ButtonBase.Click="btnProcess_Click"/>
+
+
+                <!-- Back Button -->
+                <!-- ============================== -->
+                <MediaControls:optButton Content="Back" Grid.Column="2" ButtonBase.Click="btnClosePanel_Click"/>
+            </Grid>
+        </MediaControls:optPanel>
+
+
+
+        <!-- Folder Panel -->
+        <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
+        <MediaControls:optPanel x:Name="FolderPanel" Grid.RowSpan="3" Grid.ColumnSpan="2" Visibility="Collapsed">
+            <!-- Title -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optTitle x:Name="FolderPanelTitle" Content="Add Folder"/>
+
+
+            <!-- Folder Name -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optTextBoxLong x:Name="tbFolderName" Header="Folder Name" Placeholder="Enter a Folder Name..." MaxLength="20" TextChanged="TextBox_TextChanged"/>
+
+
+            <!-- Save Location -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <MediaControls:optFolderBrowserDialog x:Name="fbdFolderSaveLocation" Header="* Save Location" Placeholder="Select a Location to Save the Folder..." ButtonContent="Browse" InitialFolderID="-1" TextChanged="TextBox_TextChanged"/>
+
+
+            <!-- Process and Back Buttons -->
+            <!-- ============================== -->
+            <!-- ============================== -->
+            <Grid Style="{DynamicResource Options.Panel.Buttons.Grid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="0.07*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Add Button -->
+                <!-- ============================== -->
+                <MediaControls:optButton x:Name="btnProcessFolder" Tag="folder" Content="Add" ButtonBase.Click="btnProcess_Click"/>
+
+
+                <!-- Back Button -->
+                <!-- ============================== -->
+                <MediaControls:optButton Content="Back" Grid.Column="2" ButtonBase.Click="btnClosePanel_Click"/>
+            </Grid>
+        </MediaControls:optPanel>
+    </Grid>
+</UserControl>

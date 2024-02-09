@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="Mock_up.Pages.PictureGallery"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mock_up.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="968">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="0.006*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.006*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Picture Gallery -->
+        <Image Source="/Assets/Other/Picture_Gallery.jpg" Width="1900" Height="905" Grid.Row="1" Grid.Column="1"/>
+
+        <!-- Picture Gallery Bar -->
+        <Grid Style="{StaticResource Bar}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="&#xe892;" Style="{StaticResource SymbolBtn}" Grid.Column="1"/>
+            <Button Content="&#xe893;" Style="{StaticResource SymbolBtn}" Grid.Column="2"/>
+
+            <Button Content="&#xe71f;" Style="{StaticResource SymbolBtn}" Grid.Column="3"/>
+            <Button Content="&#xe8a3;" Style="{StaticResource SymbolBtn}" Grid.Column="4"/>
+
+            <Button Content="&#xe80c;" Style="{StaticResource SymbolBtn}" FontSize="30" Grid.Column="5"/>
+            <Button Content="&#xe80d;" Style="{StaticResource SymbolBtn}" FontSize="30" Grid.Column="6"/>
+
+            <Button Content="&#xe740;" Style="{StaticResource SymbolBtn}" Grid.Column="8"/>
+        </Grid>
+    </Grid>
+</Page>

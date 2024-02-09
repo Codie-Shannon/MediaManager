@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="Mock_up.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mock_up"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Navigation Bar -->
+        <NavigationView x:Name="NavView" IsBackButtonVisible="Collapsed" IsSettingsVisible="False" PaneDisplayMode="Top" Height="40" Grid.Row="0">
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:Name="btnHome" Icon="Home" Content="Home" Tapped="btnHome_Tapped"/>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItemHeader Content="Libraries"/>
+                <NavigationViewItem x:Name="btnMovies" Icon="SlideShow" Content="Movies" Tapped="btnMovies_Tapped"/>
+                <NavigationViewItem x:Name="btnTVShows" Icon="SlideShow" Content="TV Shows" Tapped="btnTVShows_Tapped"/>
+                <NavigationViewItem x:Name="btnVideos" Icon="Video" Content="Videos" Tapped="btnVideos_Tapped"/>
+                <NavigationViewItem x:Name="btnVideoPlayer" Icon="Video" Content="Video Player" Tapped="btnVideoPlayer_Tapped"/>
+                <NavigationViewItem x:Name="btnPictures" Icon="Camera" Content="Pictures" Tapped="btnPictures_Tapped"/>
+                <NavigationViewItem x:Name="btnPictureGallery" Icon="Camera" Content="Picture Gallery" Tapped="btnPictureGallery_Tapped"/>
+                <NavigationViewItem x:Name="btnMusic" Icon="Audio" Content="Music" Tapped="btnMusic_Tapped"/>
+                <NavigationViewItem x:Name="btnGames" Icon="XboxOneConsole" Content="Games" Tapped="btnGames_Tapped"/>
+                <NavigationViewItem x:Name="btnGameEmulators" Icon="Library" Content="Game Emulators" Tapped="btnGameEmulators_Tapped"/>
+            </NavigationView.MenuItems>
+        </NavigationView>
+        
+        <!-- Page Frame -->
+        <Frame Name="MyFrame" Style="{StaticResource PageFrame}"/>
+    </Grid>
+</Page>

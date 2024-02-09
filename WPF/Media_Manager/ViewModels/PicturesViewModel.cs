@@ -1,0 +1,1 @@
+﻿namespace Media_Manager.ViewModels { class PicturesViewModel { } }
