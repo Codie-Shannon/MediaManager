@@ -33,6 +33,7 @@ A WPF application where you can access, manage, and view relevant data pertainin
 * WPF Dependency Properties
 * WPF Selectors
 
+
 # Copyright
 A copyright license was not included with this github repository, as such the copyright of this project falls under the standard copyright act in New Zealand.
 
