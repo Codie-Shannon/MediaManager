@@ -1,4 +1,4 @@
-# MediaManager
+# Media Manager
 
 A WPF application where you can access, manage, and view relevant data pertaining to media files on Windows 10 / 11. You have the capability to add, delete, edit, remove or show media files in file explorer. In addition to sorting media files by details, toggling the visibility of unavailable details, and toggling favourited media. The application utilizes a web scraper developed via selenium to grab relevant data from the web.
 
