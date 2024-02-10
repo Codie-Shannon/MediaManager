@@ -5,6 +5,7 @@ A WPF application where you can access, manage, and view relevant data pertainin
 
 # What I Learned
 * Agile Scrum
+* Auto-Implemented Properties
 * C# Extensions
 * Custom Controls
 * Data Binding
@@ -17,7 +18,6 @@ A WPF application where you can access, manage, and view relevant data pertainin
 * MVVM (Model-View-ViewModel)
 * Observable Collections
 * Parameters
-* Properties
 * Risk Assessment
 * Setting a Window's Style and Position using Win32 API
 * Setting and Getting the Foreground Window using Win32 API
