@@ -5,13 +5,24 @@ A WPF application where you can access, manage, and view relevant data pertainin
 
 # What I Learned
 * Agile Scrum
+* Arrays
 * Auto-Implemented Properties
 * C# Extensions
-* Custom Controls
+* C# Key Value Pairs
+* C# MediaInfo Package
+* C# ReadOnlyCollections and IReadOnlyCollections
+* C# Regex
+* C# TimeSpan
+* C# Web Client
 * Data Binding
 * Enumeration Types
+* Event Handlers
 * Fetching Media File Details on Windows 10 / 11 using MediaInfo API
+* For Loops
+* Foreach Loops
 * Hierarchical Diagrams
+* If Statements
+* Inheritance
 * LINQ
 * Lists
 * Mood Boards
@@ -19,9 +30,14 @@ A WPF application where you can access, manage, and view relevant data pertainin
 * Observable Collections
 * Parameters
 * Risk Assessment
+* Selenium
+* Serilization and Deseralization
 * Setting a Window's Style and Position using Win32 API
 * Setting and Getting the Foreground Window using Win32 API
 * SQLite CRUD (Create, Read, Update, and Delete) Operations
+* SQLite Filtering
+* String Interpolation
+* System Threading
 * Use Case Diagrams
 * User Profiles (Personas) and Use Case Diagrams
 * UWP and WPF Styles
@@ -30,6 +46,7 @@ A WPF application where you can access, manage, and view relevant data pertainin
 * WPF and UWP
 * WPF Commands
 * WPF Converters
+* WPF Custom Control Library
 * WPF Dependency Properties
 * WPF Selectors
 
